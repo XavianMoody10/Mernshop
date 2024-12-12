@@ -60,6 +60,14 @@ export const Signup = () => {
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).+$/;
 
+  function closeErrorMessage() {
+    if (errorMessage.isOpen) {
+      setErrorMessage((prev) => {
+        return { message: prev.message, isOpen: false };
+      });
+    }
+  }
+
   async function formHandler(e) {
     e.preventDefault();
 
@@ -68,15 +76,15 @@ export const Signup = () => {
         throw new Error("Complete all required fields");
       }
 
-      if (validateUsingRegex(usernamePattern, username)) {
+      if (!validateUsingRegex(usernamePattern, username)) {
         throw new Error("Create a valid username");
       }
 
-      if (validateUsingRegex(emailPattern, email)) {
+      if (!validateUsingRegex(emailPattern, email)) {
         throw new Error("Create a valid email");
       }
 
-      if (validateUsingRegex(passwordPattern, password)) {
+      if (!validateUsingRegex(passwordPattern, password)) {
         throw new Error("Create a valid password");
       }
 
@@ -101,19 +109,28 @@ export const Signup = () => {
           <div className=" space-y-4">
             <FormTextField
               placeholder={"Username"}
-              rule={"This is a rule message"}
-              onChangeEvent={(e) => setUsername(e.target.value)}
+              rule={"At least one uppercase, one lowercase, and no symbols"}
+              onChangeEvent={(e) => {
+                closeErrorMessage();
+                setUsername(e.target.value);
+              }}
             />
             <FormTextField
               placeholder={"Email"}
-              rule={"This is a rule message"}
-              onChangeEvent={(e) => setEmail(e.target.value)}
+              rule={"Must be a valid email"}
+              onChangeEvent={(e) => {
+                closeErrorMessage();
+                setEmail(e.target.value);
+              }}
             />
             <FormTextField
               type={"password"}
               placeholder={"Password"}
-              rule={"This is a rule message"}
-              onChangeEvent={(e) => setPassword(e.target.value)}
+              rule={"At least one uppercase, one lowercase, and one symbol"}
+              onChangeEvent={(e) => {
+                closeErrorMessage();
+                setPassword(e.target.value);
+              }}
             />
           </div>
 

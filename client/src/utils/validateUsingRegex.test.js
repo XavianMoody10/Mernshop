@@ -6,7 +6,7 @@ describe("Testing Regex patterns validation", () => {
   const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).+$/;
 
   test("Validate Username", () => {
-    expect(validateUsingRegex(usernamePattern, "User123")).toBe(true);
+    expect(validateUsingRegex(usernamePattern, "JohnDoe")).toBe(true);
     expect(validateUsingRegex(usernamePattern, "john ")).toBe(false);
   });
 

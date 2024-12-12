@@ -1,11 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1734028520330" clover="3.2.0">
-  <project timestamp="1734028520330" name="All files">
-    <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1" elements="3" coveredelements="3" complexity="0" loc="2" ncloc="2" packages="1" files="1" classes="1"/>
-    <file name="App.jsx" path="C:\Users\Xavia\OneDrive\Documents\All Coding Stuff\Mernshop\client\src\App.jsx">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="3" count="1" type="stmt"/>
-      <line num="4" count="1" type="stmt"/>
-    </file>
+<coverage generated="1734036056552" clover="3.2.0">
+  <project timestamp="1734036056552" name="All files">
+    <metrics statements="33" coveredstatements="23" conditionals="17" coveredconditionals="8" methods="10" coveredmethods="7" elements="60" coveredelements="38" complexity="0" loc="33" ncloc="33" packages="2" files="2" classes="2"/>
+    <package name="pages.Signup">
+      <metrics statements="32" coveredstatements="22" conditionals="17" coveredconditionals="8" methods="9" coveredmethods="6"/>
+      <file name="Signup.jsx" path="C:\Users\Xavia\OneDrive\Documents\All Coding Stuff\Mernshop\client\src\pages\Signup\Signup.jsx">
+        <metrics statements="32" coveredstatements="22" conditionals="17" coveredconditionals="8" methods="9" coveredmethods="6"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="53" count="2" type="stmt"/>
+        <line num="54" count="2" type="stmt"/>
+        <line num="55" count="2" type="stmt"/>
+        <line num="59" count="2" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="70" count="1" type="stmt"/>
+        <line num="71" count="1" type="cond" truecount="2" falsecount="3"/>
+        <line num="72" count="1" type="stmt"/>
+        <line num="75" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="79" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="83" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="89" count="1" type="stmt"/>
+        <line num="96" count="2" type="stmt"/>
+        <line num="109" count="0" type="stmt"/>
+        <line num="114" count="0" type="stmt"/>
+        <line num="120" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="validateUsingRegex.js" path="C:\Users\Xavia\OneDrive\Documents\All Coding Stuff\Mernshop\client\src\utils\validateUsingRegex.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="6" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>

@@ -1,49 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1734036863317" clover="3.2.0">
-  <project timestamp="1734036863317" name="All files">
-    <metrics statements="39" coveredstatements="23" conditionals="19" coveredconditionals="8" methods="12" coveredmethods="7" elements="70" coveredelements="38" complexity="0" loc="39" ncloc="39" packages="2" files="2" classes="2"/>
+<coverage generated="1734037555128" clover="3.2.0">
+  <project timestamp="1734037555129" name="All files">
+    <metrics statements="39" coveredstatements="23" conditionals="19" coveredconditionals="8" methods="12" coveredmethods="7" elements="70" coveredelements="38" complexity="0" loc="39" ncloc="39" packages="3" files="6" classes="6"/>
+    <package name="components">
+      <metrics statements="8" coveredstatements="8" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="4"/>
+      <file name="FormContainer.jsx" path="C:\Users\Xavia\OneDrive\Documents\All Coding Stuff\Mernshop\client\src\components\FormContainer.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
+      <file name="FormErrorMessage.jsx" path="C:\Users\Xavia\OneDrive\Documents\All Coding Stuff\Mernshop\client\src\components\FormErrorMessage.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+      </file>
+      <file name="FormTextField.jsx" path="C:\Users\Xavia\OneDrive\Documents\All Coding Stuff\Mernshop\client\src\components\FormTextField.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="6" type="stmt"/>
+      </file>
+      <file name="PrimaryButton.jsx" path="C:\Users\Xavia\OneDrive\Documents\All Coding Stuff\Mernshop\client\src\components\PrimaryButton.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
+    </package>
     <package name="pages.Signup">
-      <metrics statements="38" coveredstatements="22" conditionals="19" coveredconditionals="8" methods="11" coveredmethods="6"/>
+      <metrics statements="30" coveredstatements="14" conditionals="13" coveredconditionals="2" methods="7" coveredmethods="2"/>
       <file name="Signup.jsx" path="C:\Users\Xavia\OneDrive\Documents\All Coding Stuff\Mernshop\client\src\pages\Signup\Signup.jsx">
-        <metrics statements="38" coveredstatements="22" conditionals="19" coveredconditionals="8" methods="11" coveredmethods="6"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="6" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
-        <line num="39" count="2" type="stmt"/>
-        <line num="51" count="1" type="stmt"/>
-        <line num="52" count="2" type="stmt"/>
-        <line num="53" count="2" type="stmt"/>
-        <line num="54" count="2" type="stmt"/>
-        <line num="55" count="2" type="stmt"/>
+        <metrics statements="30" coveredstatements="14" conditionals="13" coveredconditionals="2" methods="7" coveredmethods="2"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="1" type="cond" truecount="2" falsecount="3"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="42" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="46" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
         <line num="59" count="2" type="stmt"/>
-        <line num="60" count="2" type="stmt"/>
-        <line num="61" count="2" type="stmt"/>
-        <line num="64" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="65" count="0" type="stmt"/>
-        <line num="66" count="0" type="stmt"/>
-        <line num="72" count="1" type="stmt"/>
-        <line num="74" count="1" type="stmt"/>
-        <line num="75" count="1" type="cond" truecount="2" falsecount="3"/>
-        <line num="76" count="1" type="stmt"/>
-        <line num="79" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="80" count="0" type="stmt"/>
-        <line num="83" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="84" count="0" type="stmt"/>
-        <line num="87" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="88" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
         <line num="91" count="0" type="stmt"/>
-        <line num="93" count="1" type="stmt"/>
-        <line num="100" count="2" type="stmt"/>
-        <line num="114" count="0" type="stmt"/>
-        <line num="115" count="0" type="stmt"/>
-        <line num="122" count="0" type="stmt"/>
-        <line num="123" count="0" type="stmt"/>
-        <line num="131" count="0" type="stmt"/>
-        <line num="132" count="0" type="stmt"/>
       </file>
     </package>
     <package name="utils">

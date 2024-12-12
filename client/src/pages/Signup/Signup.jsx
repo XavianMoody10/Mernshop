@@ -1,52 +1,9 @@
 import React, { useState } from "react";
-import { motion } from "motion/react";
 import { validateUsingRegex } from "../../utils/validateUsingRegex";
-
-const FormTextField = ({ type, placeholder, rule, onChangeEvent }) => {
-  return (
-    <div className=" space-y-2">
-      <input
-        type={type || "text"}
-        placeholder={placeholder}
-        className=" border w-full p-2"
-        onChange={onChangeEvent}
-      />
-      {rule && <p className=" font-medium text-sm text-gray-400">{rule}</p>}
-    </div>
-  );
-};
-
-const FormContainer = ({ children, onSubmitEvent }) => {
-  return (
-    <form className=" w-[90%] max-w-[420px] space-y-5" onSubmit={onSubmitEvent}>
-      {children}
-    </form>
-  );
-};
-
-const PrimaryButton = ({ children, onClickEvent }) => {
-  return (
-    <button
-      className=" w-full bg-black text-white text-lg font-semibold py-3 rounded-md hover:bg-green-500 duration-150"
-      onClick={onClickEvent}
-    >
-      {children}
-    </button>
-  );
-};
-
-const FormErrorMessage = ({ message, isOpen }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: "-10px" }}
-      animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: "-10px" }}
-      className=" bg-red-500 w-[90%] max-w-[420px] text-center text-white font-semibold py-3 rounded-md"
-      role="form-error-message"
-    >
-      {message}
-    </motion.div>
-  );
-};
+import { FormContainer } from "../../components/FormContainer";
+import { PrimaryButton } from "../../components/PrimaryButton";
+import { FormTextField } from "../../components/FormTextField";
+import { FormErrorMessage } from "../../components/FormErrorMessage";
 
 export const Signup = () => {
   const [username, setUsername] = useState("");
@@ -60,6 +17,7 @@ export const Signup = () => {
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).+$/;
 
+  // Closes error message
   function closeErrorMessage() {
     if (errorMessage.isOpen) {
       setErrorMessage((prev) => {
@@ -68,6 +26,7 @@ export const Signup = () => {
     }
   }
 
+  // Handles events when form submits
   async function formHandler(e) {
     e.preventDefault();
 

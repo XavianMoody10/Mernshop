@@ -4,6 +4,9 @@ import { FormContainer } from "../../components/FormContainer";
 import { PrimaryButton } from "../../components/PrimaryButton";
 import { FormTextField } from "../../components/FormTextField";
 import { FormErrorMessage } from "../../components/FormErrorMessage";
+import { signupRequest } from "../../services/auth.services";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export const Signup = () => {
   const [username, setUsername] = useState("");
@@ -16,6 +19,8 @@ export const Signup = () => {
   const usernamePattern = /^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]+$/;
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).+$/;
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // Closes error message
   function closeErrorMessage() {
@@ -47,7 +52,9 @@ export const Signup = () => {
         throw new Error("Create a valid password");
       }
 
-      return;
+      const response = await signupRequest(username, email, password);
+      dispatch(response);
+      navigate("/");
     } catch (error) {
       setErrorMessage({
         message: error.message,

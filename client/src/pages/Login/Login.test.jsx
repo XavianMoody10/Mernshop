@@ -74,6 +74,8 @@ describe("Testing successful login", () => {
 
     fireEvent.click(button);
 
-    await screen.findByText("Shop");
+    await waitFor(() => {
+      screen.getByRole("shop-section");
+    });
   });
 });

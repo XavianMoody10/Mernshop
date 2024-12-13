@@ -173,6 +173,8 @@ describe("Testing successfull signup", () => {
 
     fireEvent.click(button);
 
-    await screen.findByText("Shop");
+    await waitFor(() => {
+      screen.getByRole("shop-section");
+    });
   });
 });

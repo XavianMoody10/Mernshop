@@ -7,7 +7,7 @@ import logo from "../assets/logo.png";
 export const Header = () => {
   return (
     <>
-      <header className=" fixed top-0 w-full py-7 bg-white">
+      <header className=" fixed top-0 w-full py-7 bg-white z-50">
         <div className=" flex items-center justify-between w-[90%] mx-auto max-w-[1500px]">
           <div>
             <img

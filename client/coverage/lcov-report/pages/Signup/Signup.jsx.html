@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">94.11% </span>
+                <span class="strong">94.59% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>32/34</span>
+                <span class='fraction'>35/37</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">94.11% </span>
+                <span class="strong">94.59% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>32/34</span>
+                <span class='fraction'>35/37</span>
             </div>
         
             
@@ -176,7 +176,14 @@
 <a name='L111'></a><a href='#L111'>111</a>
 <a name='L112'></a><a href='#L112'>112</a>
 <a name='L113'></a><a href='#L113'>113</a>
-<a name='L114'></a><a href='#L114'>114</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -188,18 +195,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -232,9 +240,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -242,7 +252,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -299,11 +311,13 @@ import { signupRequest } from "../../services/auth.services";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { updateUser } from "../../store/features/user/userSlice";
+import { TransparentLoadingOverlay } from "../../components/TransparentLoadingOverlay";
 &nbsp;
 export const Signup = () =&gt; {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState({
     message: "This is an error message",
     isOpen: false,
@@ -344,10 +358,12 @@ export const Signup = () =&gt; {
         throw new Error("Create a valid password");
       }
 &nbsp;
+      setIsLoading(true);
       const response = await signupRequest(username, email, password);
       dispatch(updateUser(response));
       navigate("/");
     } catch (error) {
+      setIsLoading(false);
       setErrorMessage({
         message: error.message,
         isOpen: true,
@@ -357,6 +373,8 @@ export const Signup = () =&gt; {
 &nbsp;
   return (
     &lt;main&gt;
+      &lt;TransparentLoadingOverlay isLoading={isLoading} /&gt;
+&nbsp;
       &lt;section className=" h-screen flex flex-col items-center justify-center gap-6"&gt;
         &lt;FormErrorMessage
           message={errorMessage.message}
@@ -409,7 +427,7 @@ export const Signup = () =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-12-13T07:52:13.006Z
+                at 2024-12-13T19:48:35.126Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

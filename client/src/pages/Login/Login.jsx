@@ -7,10 +7,12 @@ import { FormContainer } from "../../components/FormContainer";
 import { loginRequest } from "../../services/auth.services";
 import { useDispatch } from "react-redux";
 import { updateUser } from "../../store/features/user/userSlice";
+import { TransparentLoadingOverlay } from "../../components/TransparentLoadingOverlay";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState({
     message: "This is an error message",
     isOpen: false,
@@ -36,10 +38,12 @@ export const Login = () => {
         throw new Error("Complete all required fields");
       }
 
+      setIsLoading(true);
       const response = await loginRequest(email, password);
       dispatch(updateUser(response));
       navigate("/");
     } catch (error) {
+      setIsLoading(false);
       setErrorMessage({
         message: error.message,
         isOpen: true,
@@ -49,6 +53,8 @@ export const Login = () => {
 
   return (
     <main>
+      <TransparentLoadingOverlay isLoading={isLoading} />
+
       <section className=" h-screen flex flex-col items-center justify-center gap-6">
         <FormErrorMessage
           message={errorMessage.message}

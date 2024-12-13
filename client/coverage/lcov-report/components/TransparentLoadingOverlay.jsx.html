@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/FormTextField.jsx</title>
+    <title>Code coverage report for components/TransparentLoadingOverlay.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> FormTextField.jsx</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> TransparentLoadingOverlay.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
@@ -78,10 +78,20 @@
 <a name='L13'></a><a href='#L13'>13</a>
 <a name='L14'></a><a href='#L14'>14</a>
 <a name='L15'></a><a href='#L15'>15</a>
-<a name='L16'></a><a href='#L16'>16</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">102x</span>
+<span class="cline-any cline-yes">37x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -94,18 +104,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
+import { AnimatePresence, motion } from "motion/react";
+import ClipLoader from "react-spinners/ClipLoader";
 &nbsp;
-export const FormTextField = ({ type, placeholder, rule, onChangeEvent }) =&gt; {
+export const TransparentLoadingOverlay = ({ isLoading }) =&gt; {
   return (
-    &lt;div className=" space-y-2"&gt;
-      &lt;input
-        type={type || "text"}
-        placeholder={placeholder}
-        className=" border w-full p-2"
-        onChange={onChangeEvent}
-      /&gt;
-      {rule &amp;&amp; &lt;p className=" font-medium text-sm text-gray-400"&gt;{rule}&lt;/p&gt;}
-    &lt;/div&gt;
+    &lt;AnimatePresence&gt;
+      {isLoading &amp;&amp; (
+        &lt;motion.div
+          initial={{ opacity: 1 }}
+          animate={{ opacity: isLoading ? 1 : <span class="branch-1 cbranch-no" title="branch not covered" >0 </span>}}
+          exit={{ opacity: 0 }}
+          className=" fixed top-0 left-0 bottom-0 right-0 bg-white bg-opacity-75 flex items-center justify-center z-20"
+        &gt;
+          &lt;ClipLoader /&gt;
+        &lt;/motion.div&gt;
+      )}
+    &lt;/AnimatePresence&gt;
   );
 };
 &nbsp;</pre></td></tr></table></pre>

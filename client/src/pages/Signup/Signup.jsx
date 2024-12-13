@@ -8,11 +8,13 @@ import { signupRequest } from "../../services/auth.services";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { updateUser } from "../../store/features/user/userSlice";
+import { TransparentLoadingOverlay } from "../../components/TransparentLoadingOverlay";
 
 export const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState({
     message: "This is an error message",
     isOpen: false,
@@ -53,10 +55,12 @@ export const Signup = () => {
         throw new Error("Create a valid password");
       }
 
+      setIsLoading(true);
       const response = await signupRequest(username, email, password);
       dispatch(updateUser(response));
       navigate("/");
     } catch (error) {
+      setIsLoading(false);
       setErrorMessage({
         message: error.message,
         isOpen: true,
@@ -66,6 +70,8 @@ export const Signup = () => {
 
   return (
     <main>
+      <TransparentLoadingOverlay isLoading={isLoading} />
+
       <section className=" h-screen flex flex-col items-center justify-center gap-6">
         <FormErrorMessage
           message={errorMessage.message}

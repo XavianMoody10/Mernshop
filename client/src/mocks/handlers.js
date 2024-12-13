@@ -37,6 +37,8 @@ export const handlers = [
       password: "Wwetna123#",
     };
 
+    await delay(3000);
+
     if (email === user.email) {
       if (password === user.password) {
         return HttpResponse.json(

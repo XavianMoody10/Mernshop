@@ -1,10 +1,4 @@
-import {
-  findByText,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-} from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { Signup } from "./Signup";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import axios from "axios";
@@ -140,7 +134,9 @@ describe("Testing error messages", () => {
       expect(errorMessage.textContent).toBe("Email already registered");
     });
   });
+});
 
+describe("Testing successfull signup", () => {
   test("Signup is successful", async () => {
     axios.post.mockResolvedValue({
       response: {
@@ -157,8 +153,8 @@ describe("Testing error messages", () => {
       <Provider store={store}>
         <MemoryRouter initialEntries={["/auth/signup"]}>
           <Routes>
-            <Route path="/" element={<Shop></Shop>}></Route>
-            <Route path="/auth/signup" element={<Signup></Signup>}></Route>
+            <Route path="/" element={<Shop />} />
+            <Route path="/auth/signup" element={<Signup />} />
           </Routes>
         </MemoryRouter>
       </Provider>

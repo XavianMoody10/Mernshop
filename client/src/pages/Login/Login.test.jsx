@@ -9,6 +9,35 @@ import { Shop } from "../Shop/Shop";
 jest.mock("axios");
 
 describe("Testing login error messages", () => {
+  test("Complete all required fields", async () => {
+    axios.post.mockRejectedValue(new Error("Complete all required fields"));
+
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <Login />
+        </MemoryRouter>
+      </Provider>
+    );
+
+    const emailField = screen.getByPlaceholderText("Email");
+    const passwordField = screen.getByPlaceholderText("Password");
+    const errorMessage = screen.getByRole("form-error-message");
+    const button = screen.getByText("Login");
+
+    fireEvent.change(emailField, {
+      target: { value: "" },
+    });
+
+    fireEvent.change(passwordField, { target: { value: "" } });
+
+    fireEvent.click(button);
+
+    await waitFor(() => {
+      expect(errorMessage.textContent).toBe("Complete all required fields");
+    });
+  });
+
   test("Invalid credentials", async () => {
     axios.post.mockRejectedValue(new Error("Invalid credentials"));
 
@@ -35,6 +64,12 @@ describe("Testing login error messages", () => {
 
     await waitFor(() => {
       expect(errorMessage.textContent).toBe("Invalid credentials");
+    });
+
+    fireEvent.change(passwordField, { target: { value: "Wwetna123" } });
+
+    await waitFor(() => {
+      expect(errorMessage.style.opacity).toBe("0");
     });
   });
 });

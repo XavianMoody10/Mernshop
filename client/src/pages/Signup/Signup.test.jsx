@@ -30,6 +30,12 @@ describe("Testing error messages", () => {
     fireEvent.click(button);
 
     await expect(errorMessage.textContent).toBe("Complete all required fields");
+
+    fireEvent.change(passwordField, { target: { value: "Wwetna123" } });
+
+    await waitFor(() => {
+      expect(errorMessage.style.opacity).toBe("0");
+    });
   });
 
   test("Create a valid username", async () => {

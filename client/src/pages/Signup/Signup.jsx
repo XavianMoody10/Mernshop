@@ -7,6 +7,7 @@ import { FormErrorMessage } from "../../components/FormErrorMessage";
 import { signupRequest } from "../../services/auth.services";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { updateUser } from "../../store/features/user/userSlice";
 
 export const Signup = () => {
   const [username, setUsername] = useState("");
@@ -53,7 +54,7 @@ export const Signup = () => {
       }
 
       const response = await signupRequest(username, email, password);
-      dispatch(response);
+      dispatch(updateUser(response));
       navigate("/");
     } catch (error) {
       setErrorMessage({

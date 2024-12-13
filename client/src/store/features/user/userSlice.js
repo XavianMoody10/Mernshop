@@ -3,9 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 export const userSlice = createSlice({
   name: "user",
   initialState: {
-    _id: "",
-    username: "",
-    email: "",
+    value: {
+      _id: "",
+      username: "",
+      email: "",
+    },
   },
   reducers: {
     updateUser: (state, action) => {
@@ -18,7 +20,6 @@ export const userSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
 export const { updateUser, resetUser } = userSlice.actions;
 
 export default userSlice.reducer;

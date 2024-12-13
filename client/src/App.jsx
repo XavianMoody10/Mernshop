@@ -29,7 +29,7 @@ export const router = createBrowserRouter(
 const App = () => {
   return (
     <Provider store={store}>
-      <RouterProvider router={router}></RouterProvider>;
+      <RouterProvider router={router}></RouterProvider>
     </Provider>
   );
 };

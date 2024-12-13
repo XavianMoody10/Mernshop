@@ -6,7 +6,7 @@ import { FormTextField } from "../../components/FormTextField";
 import { FormErrorMessage } from "../../components/FormErrorMessage";
 import { signupRequest } from "../../services/auth.services";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { updateUser } from "../../store/features/user/userSlice";
 
 export const Signup = () => {
@@ -103,6 +103,10 @@ export const Signup = () => {
 
           <PrimaryButton>Create Account</PrimaryButton>
         </FormContainer>
+
+        <Link to={"/auth/login"} className=" font-medium hover:underline">
+          Already have an account?
+        </Link>
       </section>
     </main>
   );
